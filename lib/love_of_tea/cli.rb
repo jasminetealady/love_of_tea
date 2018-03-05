@@ -307,4 +307,12 @@ class LoveOfTea::CLI
     puts "\n"
   end
 
+  def cart
+    puts "\n"
+    LoveOfTea::Tea.cart.each do |tea|
+      puts "Name: #{tea.name}\nType: #{tea.type}\nDescription: #{tea.description}\nPrice: #{tea.price}\nCaffeine Level: #{tea.caffeine}\nLink: #{tea.url}\n\n---------------------------"
+    end
+    puts "\n"
+  end
+
 end
