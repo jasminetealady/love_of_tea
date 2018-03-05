@@ -107,6 +107,12 @@ class LoveOfTea::CLI
 
             puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
 
+            savetocart = gets.strip
+            if savetocart == "y"
+              randomtea.save
+            else
+            end
+
           elsif select_or_choose == "2"
             list_green_tea
             choose_from_list = gets.strip.to_i
@@ -140,6 +146,12 @@ class LoveOfTea::CLI
             url = randomtea.url
 
             puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+
+            savetocart = gets.strip
+            if savetocart == "y"
+              randomtea.save
+            else
+            end
 
           elsif select_or_choose == "2"
 
@@ -180,6 +192,12 @@ class LoveOfTea::CLI
 
           puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
 
+          savetocart = gets.strip
+          if savetocart == "y"
+            randomtea.save
+          else
+          end
+
         elsif select_or_choose == "2"
           list_herbal_tea
           choose_from_list = gets.strip.to_i
@@ -188,7 +206,13 @@ class LoveOfTea::CLI
           description = LoveOfTea::Tea.herbal[choose_from_list - 1].description
           url = LoveOfTea::Tea.herbal[choose_from_list - 1].url
 
-            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity we offer. Please enjoy a sample of #{tea} on us!\n\nLink: #{url}"
+          puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+
+          savetocart = gets.strip
+          if savetocart == "y"
+            randomtea.save
+          else
+          end
 
         else puts "Invalid Input"
           match
@@ -208,6 +232,12 @@ class LoveOfTea::CLI
 
           puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
 
+          savetocart = gets.strip
+          if savetocart == "y"
+            randomtea.save
+          else
+          end
+
         elsif select_or_choose == "2"
           list_chai_tea
           choose_from_list = gets.strip.to_i
@@ -216,7 +246,14 @@ class LoveOfTea::CLI
           description = LoveOfTea::Tea.chai[choose_from_list - 1].description
           url = LoveOfTea::Tea.chai[choose_from_list - 1].url
 
-            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity we offer. Please enjoy a sample of #{tea} on us!\n\nLink: #{url}"
+          puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+
+          savetocart = gets.strip
+          if savetocart == "y"
+            randomtea.save
+          else
+          end
+
         else puts "Invalid Input"
           match
         end
