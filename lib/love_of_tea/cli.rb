@@ -42,7 +42,7 @@ class LoveOfTea::CLI
   end
 
   def menu
-    puts "\nHello and welcome to Love of Tea. To begin, please select an option by typing the number. You may exit the program at any time by typing exit.\n\n1. Learn More About Tea\n2. A Quote About Tea\n3. Get Matched with A Tea\n4. See Cart\n"
+    puts "\nHello and welcome to Love of Tea. This application will help you learn about tea and select the perfect teas for you. To begin, please select an option by typing the number. You may exit the program at any time by typing exit and use the Tea Matcher as many times as you wish to populate your cart.\n\n1. Learn More About Tea\n2. A Quote About Tea\n3. Get Matched with A Tea\n4. See Cart\n\n"
   end
 
   def match
@@ -67,7 +67,7 @@ class LoveOfTea::CLI
             description = randomtea.description
             url = randomtea.url
 
-            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n\n"
 
             savetocart = gets.strip
             if savetocart == "y"
@@ -84,7 +84,7 @@ class LoveOfTea::CLI
             description = tea.description
             url = tea.url
 
-              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
               savetocart = gets.strip
               if savetocart == "y"
@@ -98,7 +98,7 @@ class LoveOfTea::CLI
 
       elsif caffeine == "2"
 
-        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select for me\n2. Choose My Own"
+        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select for me\n2. Choose My Own\n\n"
         select_or_choose = gets.strip
           if select_or_choose == "1"
 
@@ -108,7 +108,7 @@ class LoveOfTea::CLI
             description = randomtea.description
             url = randomtea.url
 
-            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n\n"
 
             savetocart = gets.strip
             if savetocart == "y"
@@ -125,7 +125,7 @@ class LoveOfTea::CLI
             description = tea.description
             url = tea.url
 
-              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
               savetocart = gets.strip
               if savetocart == "y"
@@ -149,7 +149,7 @@ class LoveOfTea::CLI
             description = randomtea.description
             url = randomtea.url
 
-            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n\n"
 
             savetocart = gets.strip
             if savetocart == "y"
@@ -167,7 +167,7 @@ class LoveOfTea::CLI
             description = tea.description
             url = tea.url
 
-              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
               savetocart = gets.strip
               if savetocart == "y"
@@ -195,7 +195,7 @@ class LoveOfTea::CLI
           description = randomtea.description
           url = randomtea.url
 
-          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
+          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n\n"
 
           savetocart = gets.strip
           if savetocart == "y"
@@ -212,7 +212,7 @@ class LoveOfTea::CLI
           description = tea.description
           url = tea.url
 
-            puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+            puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
             savetocart = gets.strip
             if savetocart == "y"
@@ -224,6 +224,7 @@ class LoveOfTea::CLI
           match
         end
 
+    #Warming/Spice
     elsif effect == "3"
 
       puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
@@ -236,7 +237,7 @@ class LoveOfTea::CLI
           description = randomtea.description
           url = randomtea.url
 
-          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
+          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n\n"
 
           savetocart = gets.strip
           if savetocart == "y"
@@ -253,7 +254,7 @@ class LoveOfTea::CLI
           description = tea.description
           url = tea.url
 
-            puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+            puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
             savetocart = gets.strip
             if savetocart == "y"
@@ -309,10 +310,12 @@ class LoveOfTea::CLI
 
   def cart
     puts "\n"
+    puts "\nHere are the teas that you have saved to your cart. Please note that a blank caffeine level indicates no caffeine. To purchase and see more details, copy the URLs into your browser for your desired teas.\n\n"
     LoveOfTea::Tea.cart.each do |tea|
       puts "Name: #{tea.name}\nType: #{tea.type}\nDescription: #{tea.description}\nPrice: #{tea.price}\nCaffeine Level: #{tea.caffeine}\nLink: #{tea.url}\n\n---------------------------"
     end
     puts "\n"
+    call
   end
 
 end

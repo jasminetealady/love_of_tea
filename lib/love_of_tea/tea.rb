@@ -13,7 +13,7 @@ class LoveOfTea::Tea
     @type = teahash[:type]
     @price = teahash[:price] ? teahash[:price] : teahash[:price2]
     @description = teahash[:description]
-    @caffeine = if teahash[:type] == "Green" then "medium" elsif teahash[:type] == "White" then "low" elsif teahash[:type] == "Black" then "high" else nil end
+    @caffeine = if teahash[:type] == "Green" then "medium" elsif teahash[:type] == "White" then "low" elsif teahash[:type] == "Black" || teahash[:type] == "Chai"  then "high" else nil end
     @url = teahash[:url]
     @@all << self
   end
