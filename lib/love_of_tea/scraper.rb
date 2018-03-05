@@ -19,17 +19,17 @@ class LoveOfTea::Scraper
         :description => tea.css("div.short-desc").text,
         :price => price,
         :price2 => price2,
-        :type => doc.css("header h1").text}
+        :type => doc.css("header h1").text,
+        :url => "https://www.rishi-tea.com" + tea.css("a").attribute("href").value}
 
         teas << tea_hash
+
     end
 
     teas.each do |teahash|
       teahash.delete_if {|key, value| value == nil || value == ""}
     end
-
     teas
   end
-
 
 end

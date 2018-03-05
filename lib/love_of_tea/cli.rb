@@ -40,72 +40,188 @@ class LoveOfTea::CLI
   end
 
   def menu
-    puts "\nHello and welcome to Love of Tea. To begin, let's learn a little bit about tea. To learn more, please type learn more into the console. You may exit the program at any time by typing exit.\n\n1. Learn More About Tea\n2. A Quote About Tea\n3. Get Matched with A Tea\n\n"
+    puts "\nHello and welcome to Love of Tea. To begin, please select an option by typing the number. You may exit the program at any time by typing exit.\n\n1. Learn More About Tea\n2. A Quote About Tea\n3. Get Matched with A Tea\n\n"
   end
 
   def match
     puts "\nWhat sort of effect are you looking for in your tea?\n\n1. Energy\n2. Calming\n3. Warming/Spice\n\n"
 
-    input = gets.strip
+    effect = gets.strip
 
-    if input == "1"
+    #Energy
+    if effect == "1"
       puts "\nPlease choose a caffeine level.\n\n1. Low\n2. Medium\n3. High\n\n"
 
-      input2 = gets.strip
-      if input2 == "1"
+      caffeine = gets.strip
+      if caffeine == "1"
 
         puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
-        input3 = gets.strip
-          if input3 == "1"
+        select_or_choose = gets.strip
+          if select_or_choose == "1"
 
             randomtea = LoveOfTea::Tea.white.shuffle.first
-            randomteaname = randomtea.name
-            price = LoveOfTea::Tea.price_by_name(randomteaname)
+            name = randomtea.name
+            price = randomtea.price
             description = randomtea.description
+            url = randomtea.url
 
-            puts "\nWe have chosen the lovely #{randomteaname} for you. #{description}. Depending on quantity, that will cost #{price}. Enjoy!\n"
-          elsif input3 == "2"
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+
+            savetocart = gets.strip
+            if savetocart == "y"
+              randomtea.save
+            else
+            end
+
+          elsif select_or_choose == "2"
             list_white_tea
-            input4 = gets.strip.to_i
-            tea = LoveOfTea::Tea.white[input4 - 1].name
-            price = LoveOfTea::Tea.white[input4 - 1].price
-              puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. Please enjoy a sample of #{tea} on us!"
+            choose_from_list = gets.strip.to_i
+            tea = LoveOfTea::Tea.white[choose_from_list - 1].name
+            price = LoveOfTea::Tea.white[choose_from_list - 1].price
+            description = LoveOfTea::Tea.white[choose_from_list - 1].description
+            url = LoveOfTea::Tea.white[choose_from_list - 1].url
+
+              puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+
+              savetocart = gets.strip
+              if savetocart == "y"
+                randomtea.save
+              else
+              end
+
           else puts "Invalid Input"
             match
           end
 
-      elsif input2 == "2"
+      elsif caffeine == "2"
 
         puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select for me\n2. Choose My Own"
-        input3 = gets.strip
-          if input3 == "1"
+        select_or_choose = gets.strip
+          if select_or_choose == "1"
 
             randomtea = LoveOfTea::Tea.green.shuffle.first
-            randomteaname = randomtea.name
-            price = LoveOfTea::Tea.price_by_name(randomteaname)
-
+            name = randomtea.name
+            price = randomtea.price
             description = randomtea.description
-            puts "\nWe have chosen the lovely #{randomteaname} for you. #{description}. Depending on quantity, that will cost #{price}. Enjoy!\n"
-            
-          elsif input3 == "2"
+            url = randomtea.url
+
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)\n"
+
+          elsif select_or_choose == "2"
             list_green_tea
-            input4 = gets.strip.to_i
-            tea = LoveOfTea::Tea.green[input4 - 1].name
-            price = LoveOfTea::Tea.green[input4 - 1].price
-              puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. Please enjoy a sample of #{tea} on us!"
+            choose_from_list = gets.strip.to_i
+            tea = LoveOfTea::Tea.green[choose_from_list - 1].name
+            price = LoveOfTea::Tea.green[choose_from_list - 1].price
+            description = LoveOfTea::Tea.green[choose_from_list - 1].description
+            url = LoveOfTea::Tea.green[choose_from_list - 1].url
+
+            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+
+            savetocart = gets.strip
+            if savetocart == "y"
+              randomtea.save
+            else
+            end
+
           else puts "Invalid Input"
             match
           end
 
-      elsif input2 == "3"
-        puts "\n"
-      end
-    elsif input == "2"
-      # Herbals yo
-    elsif input == "3"
-      # Chais mofo
+      elsif caffeine == "3"
 
-    elsif input != "exit"
+        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+        select_or_choose = gets.strip
+          if select_or_choose == "1"
+
+            randomtea = LoveOfTea::Tea.black.shuffle.first
+            name = randomtea.name
+            price = randomtea.price
+            description = randomtea.description
+            url = randomtea.url
+
+            puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+
+          elsif select_or_choose == "2"
+
+            list_black_tea
+            choose_from_list = gets.strip.to_i
+            tea = LoveOfTea::Tea.black[choose_from_list - 1].name
+            price = LoveOfTea::Tea.black[choose_from_list - 1].price
+            description = LoveOfTea::Tea.black[choose_from_list - 1].description
+            url = LoveOfTea::Tea.black[choose_from_list - 1].url
+
+            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n"
+
+            savetocart = gets.strip
+            if savetocart == "y"
+              randomtea.save
+            else
+            end
+
+          else puts "Invalid Input"
+            match
+          end
+
+      end
+
+
+    #Calming
+    elsif effect == "2"
+
+      puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+      select_or_choose = gets.strip
+        if select_or_choose == "1"
+
+          randomtea = LoveOfTea::Tea.herbal.shuffle.first
+          name = randomtea.name
+          price = randomtea.price
+          description = randomtea.description
+          url = randomtea.url
+
+          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+
+        elsif select_or_choose == "2"
+          list_herbal_tea
+          choose_from_list = gets.strip.to_i
+          tea = LoveOfTea::Tea.herbal[choose_from_list - 1].name
+          price = LoveOfTea::Tea.herbal[choose_from_list - 1].price
+          description = LoveOfTea::Tea.herbal[choose_from_list - 1].description
+          url = LoveOfTea::Tea.herbal[choose_from_list - 1].url
+
+            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity we offer. Please enjoy a sample of #{tea} on us!\n\nLink: #{url}"
+
+        else puts "Invalid Input"
+          match
+        end
+
+    elsif input == "3"
+
+      puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+      select_or_choose = gets.strip
+        if select_or_choose == "1"
+
+          randomtea = LoveOfTea::Tea.chai.shuffle.first
+          name = randomtea.name
+          price = randomtea.price
+          description = randomtea.description
+          url = randomtea.url
+
+          puts "\nWe have chosen the lovely #{name} for you. #{description}. Depending on quantity, that will cost #{price}. If the price is fixed, that is the only quantity offered. Enjoy!\n\nWould you like to save this to your cart? (y/n)"
+
+        elsif select_or_choose == "2"
+          list_chai_tea
+          choose_from_list = gets.strip.to_i
+          tea = LoveOfTea::Tea.chai[choose_from_list - 1].name
+          price = LoveOfTea::Tea.chai[choose_from_list - 1].price
+          description = LoveOfTea::Tea.chai[choose_from_list - 1].description
+          url = LoveOfTea::Tea.chai[choose_from_list - 1].url
+
+            puts "\nExcellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity we offer. Please enjoy a sample of #{tea} on us!\n\nLink: #{url}"
+        else puts "Invalid Input"
+          match
+        end
+
+    elsif effect != "exit"
       puts "Invalid input. Please try again."
       match
     else
@@ -116,30 +232,35 @@ class LoveOfTea::CLI
     puts "\n"
     LoveOfTea::Tea.white.each_with_index do |tea, index| puts "#{index + 1}. #{tea.name}"
     end
+    puts "\n"
   end
 
   def list_green_tea
     puts "\n"
     LoveOfTea::Tea.green.each_with_index do |tea, index| puts "#{index + 1}. #{tea.name}"
     end
+    puts "\n"
   end
 
   def list_black_tea
     puts "\n"
     LoveOfTea::Tea.black.each_with_index do |tea, index| puts "#{index + 1}. #{tea.name}"
     end
+    puts "\n"
   end
 
   def list_herbal_tea
     puts "\n"
     LoveOfTea::Tea.herbal.each_with_index do |tea, index| puts "#{index + 1}. #{tea.name}"
     end
+    puts "\n"
   end
 
   def list_chai_tea
     puts "\n"
     LoveOfTea::Tea.chai.each_with_index do |tea, index| puts "#{index + 1}. #{tea.name}"
     end
+    puts "\n"
   end
 
 end

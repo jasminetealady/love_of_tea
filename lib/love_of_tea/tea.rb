@@ -3,9 +3,10 @@ require_relative './scraper.rb'
 require_relative './cli.rb'
 
 class LoveOfTea::Tea
-  attr_accessor :name, :type, :price, :description, :caffeine
+  attr_accessor :name, :type, :price, :description, :caffeine, :url
 
   @@all = []
+  @@cart = []
 
   def initialize(teahash)
     @name = teahash[:name]
@@ -13,6 +14,7 @@ class LoveOfTea::Tea
     @price = teahash[:price] ? teahash[:price] : teahash[:price2]
     @description = teahash[:description]
     @caffeine = if teahash[:type] == "Green" then "medium" elsif teahash[:type] == "White" then "low" elsif teahash[:type] == "Black" then "high" else nil end
+    @url = teahash[:url]
     @@all << self
   end
 
@@ -53,6 +55,14 @@ class LoveOfTea::Tea
   def self.price_by_name(teaname)
     tea = @@all.detect {|tea| tea.name == teaname}
     tea.price
+  end
+
+  def save
+    @@cart << self
+  end
+
+  def self.cart
+    @@cart
   end
 
 end
