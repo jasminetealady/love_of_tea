@@ -27,7 +27,7 @@ class LoveOfTea::CLI
     elsif input == "4"
       cart
     elsif input != "exit"
-      puts "Invalid input. Please try again."
+      puts "\nInvalid input. Please try again."
       call
     else
     end
@@ -45,6 +45,18 @@ class LoveOfTea::CLI
     puts "\nHello and welcome to Love of Tea. This application will help you learn about tea and select the perfect teas for you. To begin, please select an option by typing the number. You may exit the program at any time by typing exit and use the Tea Matcher as many times as you wish to populate your cart.\n\n1. Learn More About Tea\n2. A Quote About Tea\n3. Get Matched with A Tea\n4. See Cart\n\n"
   end
 
+  def caffeine_prompt
+    puts "\nPlease choose a caffeine level.\n\n1. Low\n2. Medium\n3. High\n\n"
+  end
+
+  def selection_prompt
+    puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+  end
+
+  def invalid_input
+    puts "\nInvalid input. Please try again."
+  end
+
   def match
     puts "\nWhat sort of effect are you looking for in your tea?\n\n1. Energy\n2. Calming\n3. Warming/Spice\n\n"
 
@@ -52,12 +64,12 @@ class LoveOfTea::CLI
 
     #Energy
     if effect == "1"
-      puts "\nPlease choose a caffeine level.\n\n1. Low\n2. Medium\n3. High\n\n"
+      caffeine_prompt
 
       caffeine = gets.strip
       if caffeine == "1"
 
-        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+        selection_prompt
         select_or_choose = gets.strip
           if select_or_choose == "1"
 
@@ -80,7 +92,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.white.length
-              puts "Invalid Input. Please try again"
+              puts "\nInvalid input. Please try again."
               list_white_tea
               choose_from_list = gets.strip.to_i
             else
@@ -100,13 +112,13 @@ class LoveOfTea::CLI
               else
               end
 
-          else puts "Invalid Input"
+          else puts "\nInvalid input. Please try again."
             match
           end
 
       elsif caffeine == "2"
 
-        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select for me\n2. Choose My Own\n\n"
+        selection_prompt
         select_or_choose = gets.strip
           if select_or_choose == "1"
 
@@ -129,7 +141,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.green.length
-              puts "Invalid Input. Please try again"
+              puts "\nInvalid input. Please try again."
               list_green_tea
               choose_from_list = gets.strip.to_i
             else
@@ -149,13 +161,13 @@ class LoveOfTea::CLI
               else
               end
 
-          else puts "Invalid Input"
+          else puts "\nInvalid input. Please try again."
             match
           end
 
       elsif caffeine == "3"
 
-        puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+        selection_prompt
         select_or_choose = gets.strip
           if select_or_choose == "1"
 
@@ -171,6 +183,8 @@ class LoveOfTea::CLI
             if savetocart == "y"
               randomtea.save
             else
+              puts "\nInvalid input. Please try again."
+              match
             end
 
           elsif select_or_choose == "2"
@@ -179,7 +193,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.black.length
-              puts "Invalid Input. Please try again"
+              puts "\nInvalid input. Please try again."
               list_black_tea
               choose_from_list = gets.strip.to_i
             else
@@ -199,7 +213,7 @@ class LoveOfTea::CLI
               else
               end
 
-          else puts "Invalid Input"
+          else puts "\nInvalid input. Please try again."
             match
           end
 
@@ -209,7 +223,7 @@ class LoveOfTea::CLI
     #Calming
     elsif effect == "2"
 
-      puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+      selection_prompt
       select_or_choose = gets.strip
         if select_or_choose == "1"
 
@@ -232,7 +246,7 @@ class LoveOfTea::CLI
           choose_from_list = gets.strip.to_i
 
           if choose_from_list > LoveOfTea::Tea.herbal.length
-            puts "Invalid Input. Please try again"
+            puts "\nInvalid input. Please try again."
             list_herbal_tea
             choose_from_list = gets.strip.to_i
           else
@@ -252,14 +266,14 @@ class LoveOfTea::CLI
             else
             end
 
-        else puts "Invalid Input"
+        else puts "\nInvalid input. Please try again."
           match
         end
 
     #Warming/Spice
     elsif effect == "3"
 
-      puts "\nWould you like us to select a tea for you? Or would you prefer to choose from a list?\n\n1. Select For Me\n2. Choose My Own\n\n"
+      selection_prompt
       select_or_choose = gets.strip
         if select_or_choose == "1"
 
@@ -283,13 +297,12 @@ class LoveOfTea::CLI
           choose_from_list = gets.strip.to_i
 
           if choose_from_list > LoveOfTea::Tea.chai.length
-            puts "Invalid Input. Please try again"
+            puts "\nInvalid Input. Please try again"
             list_chai_tea
             choose_from_list = gets.strip.to_i
           else
           end
 
-          end
           tea = LoveOfTea::Tea.chai[choose_from_list - 1]
           name = tea.name
           price = tea.price
@@ -304,16 +317,18 @@ class LoveOfTea::CLI
             else
             end
 
-        else puts "Invalid Input"
+        else puts "\nInvalid input. Please try again."
           match
         end
 
     elsif effect != "exit"
-      puts "Invalid input. Please try again."
+      puts "\nInvalid input. Please try again."
       match
     else
     end
   end
+
+
 
   def list_white_tea
     puts "\n"
