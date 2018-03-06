@@ -84,6 +84,7 @@ class LoveOfTea::CLI
               list_white_tea
               choose_from_list = gets.strip.to_i
             else
+            end
 
             tea = LoveOfTea::Tea.white[choose_from_list - 1]
             name = tea.name
@@ -132,6 +133,7 @@ class LoveOfTea::CLI
               list_green_tea
               choose_from_list = gets.strip.to_i
             else
+            end
 
             tea = LoveOfTea::Tea.green[choose_from_list - 1]
             name = tea.name
@@ -181,6 +183,7 @@ class LoveOfTea::CLI
               list_black_tea
               choose_from_list = gets.strip.to_i
             else
+            end
 
             tea = LoveOfTea::Tea.black[choose_from_list - 1]
             name = tea.name
@@ -233,6 +236,7 @@ class LoveOfTea::CLI
             list_herbal_tea
             choose_from_list = gets.strip.to_i
           else
+          end
 
           tea = LoveOfTea::Tea.herbal[choose_from_list - 1]
           name = tea.name
@@ -283,6 +287,7 @@ class LoveOfTea::CLI
             list_chai_tea
             choose_from_list = gets.strip.to_i
           else
+          end
 
           end
           tea = LoveOfTea::Tea.chai[choose_from_list - 1]
