@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-
-require_relative '../config/environment.rb'
+require "bundler/setup"
+require_relative '../config/environment'
 
 LoveOfTea::CLI.new.call
