@@ -78,6 +78,13 @@ class LoveOfTea::CLI
           elsif select_or_choose == "2"
             list_white_tea
             choose_from_list = gets.strip.to_i
+
+            if choose_from_list > LoveOfTea::Tea.white.length
+              puts "Invalid Input. Please try again"
+              list_white_tea
+              choose_from_list = gets.strip.to_i
+            else
+
             tea = LoveOfTea::Tea.white[choose_from_list - 1]
             name = tea.name
             price = tea.price
@@ -119,6 +126,13 @@ class LoveOfTea::CLI
           elsif select_or_choose == "2"
             list_green_tea
             choose_from_list = gets.strip.to_i
+
+            if choose_from_list > LoveOfTea::Tea.green.length
+              puts "Invalid Input. Please try again"
+              list_green_tea
+              choose_from_list = gets.strip.to_i
+            else
+
             tea = LoveOfTea::Tea.green[choose_from_list - 1]
             name = tea.name
             price = tea.price
@@ -161,6 +175,13 @@ class LoveOfTea::CLI
 
             list_black_tea
             choose_from_list = gets.strip.to_i
+
+            if choose_from_list > LoveOfTea::Tea.black.length
+              puts "Invalid Input. Please try again"
+              list_black_tea
+              choose_from_list = gets.strip.to_i
+            else
+
             tea = LoveOfTea::Tea.black[choose_from_list - 1]
             name = tea.name
             price = tea.price
@@ -206,6 +227,13 @@ class LoveOfTea::CLI
         elsif select_or_choose == "2"
           list_herbal_tea
           choose_from_list = gets.strip.to_i
+
+          if choose_from_list > LoveOfTea::Tea.herbal.length
+            puts "Invalid Input. Please try again"
+            list_herbal_tea
+            choose_from_list = gets.strip.to_i
+          else
+
           tea = LoveOfTea::Tea.herbal[choose_from_list - 1]
           name = tea.name
           price = tea.price
@@ -246,8 +274,17 @@ class LoveOfTea::CLI
           end
 
         elsif select_or_choose == "2"
+
           list_chai_tea
           choose_from_list = gets.strip.to_i
+
+          if choose_from_list > LoveOfTea::Tea.chai.length
+            puts "Invalid Input. Please try again"
+            list_chai_tea
+            choose_from_list = gets.strip.to_i
+          else
+
+          end
           tea = LoveOfTea::Tea.chai[choose_from_list - 1]
           name = tea.name
           price = tea.price
