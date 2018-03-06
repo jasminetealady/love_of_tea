@@ -14,11 +14,13 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/avelineamour/love_of_tea"
   spec.license       = "MIT"
   spec.files         = ["lib/love_of_tea/tea.rb", "lib/love_of_tea/scraper.rb", "lib/love_of_tea/cli.rb", "lib/love_of_tea/version.rb", "config/environment.rb"]
- spec.executables   = ["loveoftea"]
+  # spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  #   f.match(%r{^(test|spec|features)/})
+  spec.executables   = ["loveoftea"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "require_all", "~> 1.5.0"
+  spec.add_dependency "require_all", "~> 1.5.0"
   spec.add_development_dependency "pry", "~> 1.9.3"
   spec.add_dependency "nokogiri"
 

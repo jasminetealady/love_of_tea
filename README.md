@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Type love_of_tea in your terminal to run.
+Type loveoftea in your terminal to run.
 
 ## Development
 
