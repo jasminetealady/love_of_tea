@@ -92,7 +92,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.white.length
-              puts "\nInvalid input. Please try again."
+              invalid_input
               list_white_tea
               choose_from_list = gets.strip.to_i
             else
@@ -112,7 +112,8 @@ class LoveOfTea::CLI
               else
               end
 
-          else puts "\nInvalid input. Please try again."
+          else
+            invalid_input
             match
           end
 
@@ -141,7 +142,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.green.length
-              puts "\nInvalid input. Please try again."
+              invalid_input
               list_green_tea
               choose_from_list = gets.strip.to_i
             else
@@ -161,7 +162,8 @@ class LoveOfTea::CLI
               else
               end
 
-          else puts "\nInvalid input. Please try again."
+          else
+            invalid_input
             match
           end
 
@@ -183,7 +185,7 @@ class LoveOfTea::CLI
             if savetocart == "y"
               randomtea.save
             else
-              puts "\nInvalid input. Please try again."
+              invalid_input
               match
             end
 
@@ -193,7 +195,7 @@ class LoveOfTea::CLI
             choose_from_list = gets.strip.to_i
 
             if choose_from_list > LoveOfTea::Tea.black.length
-              puts "\nInvalid input. Please try again."
+              invalid_input
               list_black_tea
               choose_from_list = gets.strip.to_i
             else
@@ -205,18 +207,22 @@ class LoveOfTea::CLI
             description = tea.description
             url = tea.url
 
-              puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
+            puts "\n#{name}. Excellent choice. #{description}. Depending on quantity that will cost #{price}. If the price is fixed, that is the only quantity offered.\n\nWould you like to save this to your cart? (y/n)\n\n"
 
-              savetocart = gets.strip
+            savetocart = gets.strip
               if savetocart == "y"
                 tea.save
               else
               end
 
-          else puts "\nInvalid input. Please try again."
-            match
-          end
+            else
+              invalid_input
+              match
+            end
 
+      else
+        invalid_input
+        match
       end
 
 
@@ -246,7 +252,7 @@ class LoveOfTea::CLI
           choose_from_list = gets.strip.to_i
 
           if choose_from_list > LoveOfTea::Tea.herbal.length
-            puts "\nInvalid input. Please try again."
+            invalid_input
             list_herbal_tea
             choose_from_list = gets.strip.to_i
           else
@@ -266,7 +272,8 @@ class LoveOfTea::CLI
             else
             end
 
-        else puts "\nInvalid input. Please try again."
+        else
+          invalid_input
           match
         end
 
@@ -297,7 +304,7 @@ class LoveOfTea::CLI
           choose_from_list = gets.strip.to_i
 
           if choose_from_list > LoveOfTea::Tea.chai.length
-            puts "\nInvalid Input. Please try again"
+            invalid_input
             list_chai_tea
             choose_from_list = gets.strip.to_i
           else
@@ -317,12 +324,13 @@ class LoveOfTea::CLI
             else
             end
 
-        else puts "\nInvalid input. Please try again."
+        else
+          invalid_input
           match
         end
 
     elsif effect != "exit"
-      puts "\nInvalid input. Please try again."
+      invalid_input
       match
     else
     end
