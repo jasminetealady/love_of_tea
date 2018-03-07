@@ -4,7 +4,7 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-# require_all 'lib'
+# require_all 'lib/love_of_tea'
 
 require_relative '../lib/love_of_tea/version'
 require_relative '../lib/love_of_tea/scraper'

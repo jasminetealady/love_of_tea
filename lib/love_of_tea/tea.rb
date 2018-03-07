@@ -52,10 +52,6 @@ class LoveOfTea::Tea
     @@all.reject {|tea| tea.type != "Chai"}
   end
 
-  def self.price_by_name(teaname)
-    tea = @@all.detect {|tea| tea.name == teaname}
-    tea.price
-  end
 
   def save
     @@cart << self

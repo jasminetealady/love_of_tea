@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.files         = ["lib/love_of_tea/tea.rb", "lib/love_of_tea/scraper.rb", "lib/love_of_tea/cli.rb", "lib/love_of_tea/version.rb", "config/environment.rb"]
   # spec.files         = `git ls-files -z`.split("\x0").reject do |f|
   #   f.match(%r{^(test|spec|features)/})
+  # end
   spec.executables   = ["loveoftea"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
