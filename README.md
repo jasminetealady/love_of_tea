@@ -1,5 +1,8 @@
 # LoveOfTea
 
+
+## Description
+
 This gem will teach you a little bit about tea and pair you with teas scraped from the Rishi Tea website. The URLs for purchase are provided in your cart.
 
 ## Installation
