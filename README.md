@@ -3,7 +3,7 @@
 
 ## Description
 
-This gem will teach you a little bit about tea and pair you with teas scraped from the Rishi Tea website. The URLs for purchase are provided in your cart.
+This gem will teach you a little bit about tea and pair you with teas scraped from the Rishi Tea website. The URLs for purchase are provided in your cart. (Note: gem is now deprecated as Rishi redesigned their website and will not be updated, as it was more for demonstration purposes)
 
 ## Installation
 
